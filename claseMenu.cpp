@@ -3,6 +3,12 @@
 
 using namespace std;
 
+void agregarUsuario() {
+	Persona persona; 
+    leerPersona(persona);
+    imprimirPersona(persona); 
+}
+
 void mostrarMenu() {
     int opcion = 0;
     do {
@@ -43,8 +49,3 @@ void mostrarMenu() {
     } while (opcion != 6);
 }
 
-void agregarUsuario() {
-	Persona persona; 
-    leerPersona(persona);
-    imprimirPersona(persona); 
-}
