@@ -1,5 +1,7 @@
 #include <iostream>
 #include "clasePersona.cpp"
+#include "claseCita.cpp"
+#include "claseFecha.cpp"
 
 using namespace std;
 
@@ -12,14 +14,15 @@ void mostrarMenu() {
         cout << "3. Eliminar usuario" << endl;
         cout << "4. Buscar usuario" << endl;
         cout << "5. Agendar cita" << endl;
-        cout << "6. Salir" << endl;
+        cout << "6. Agregar fecha" << endl;
+        cout << "7. Salir" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
         switch (opcion) {
             case 1: {
                 cout << "Opcion 1: Agregar usuario" << endl;
-            	agregarUsuario();
+            	//agregarUsuario();
                 break;
             }
             case 2:
@@ -35,7 +38,11 @@ void mostrarMenu() {
                 cout << "Opcion 5: Agendar cita" << endl;
                 break;
             case 6:
+                cout << "opcion 7: Agregar fecha " << endl;
+                break;
+            case 7:
                 cout << "Saliendo del programa..." << endl;
+            
                 break;
             default:
                 cout << "Opcion no valida. Por favor, intente de nuevo." << endl;
