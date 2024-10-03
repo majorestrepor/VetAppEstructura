@@ -46,7 +46,7 @@ void mostrarHistoriaClinica(HistoriaClinica historia) {
     imprimirPersona(historia.cliente); 
 
     cout << "Datos del Veterinario:" << endl;
-   // imprimirVeterinario(historia.veterinario); 
+
 
     cout << "Fecha del Procedimiento: " << historia.fecha.dia << "/" 
          << historia.fecha.mes << "/" << historia.fecha.year << endl;
