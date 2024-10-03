@@ -13,7 +13,6 @@ private:
 public:
     Cita() {}
 
-   
     Cita(string t, string f, string h, string d) 
         : titulo(t), fecha(f), hora(h), descripcion(d) {}
 

@@ -6,7 +6,13 @@ struct fecha {
     int dia;
     int mes;
     int year;
+    fecha(int dia, int mes, int year) {
+        this->dia = dia;
+        this->mes = mes;
+        this->year = year;
+    };
 };
+
 
 bool esBisiesto(int year) {
     return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
@@ -58,3 +64,4 @@ void mostrarFecha(fecha f) {
     cout << "  Mes: " << f.mes << endl;
     cout << "  A o: " << f.year << endl;
 }
+

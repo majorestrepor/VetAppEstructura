@@ -1,13 +1,18 @@
 #include <iostream>
 #include <vector>
 #include "claseCita.cpp"
+#include "claseFecha.cpp"
+#include "claseHistoriaClinica.cpp"
 #include "claseGestionarUsuario.cpp"
-
 
 using namespace std;
 
 vector<Cita> citas;
 
+void mostrarHistorialClinico() {
+    cout << "Historial Clinico:" << endl;
+    
+}
 void agendarCita() {
     string titulo, fecha, hora, descripcion;
     cout << "Ingrese el titulo de la cita: ";
@@ -142,7 +147,9 @@ void mostrarMenu() {
         cout << "---------- VETAPP ----------" << endl;
         cout << "1. Agregar usuario" << endl;
         cout << "2. Gestionar citas" << endl;
-        cout << "3. Salir" << endl;
+        cout << "3. Historial Clinico" << endl;
+        cout << "4. Salir" << endl;
+        cout << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
 
@@ -155,10 +162,14 @@ void mostrarMenu() {
                 gestionarCitas();  
                 break;
             case 3:
-                cout << "Saliendo del programa..." << endl;
+                cout << "opcion 7: Historial Clinico  " << endl;
+                mostrarHistorialClinico();
+                break;
+            case 4:
+                cout << "Saliendo del programa..." << endl;            
                 break;
             default:
                 cout << "Opcion no valida. Por favor, intente de nuevo." << endl;
         }
-    } while (opcion != 3);
+    } while (opcion != 4);
 }
