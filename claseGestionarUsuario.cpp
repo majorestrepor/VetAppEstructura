@@ -1,29 +1,34 @@
 #include <iostream>
 #include <fstream>
 #include "clasePersona.cpp"
+#include "claseMascota.cpp"
 
 using namespace std;
 
-void agregarUsuario() {
-	Persona persona; 
-    leerPersona(persona);
-    imprimirPersona(persona); 
-}
-
 void guardarUsuarioEnArchivo(Persona persona) {
-    ofstream archivo("usuarios.txt", ios::app); 
+    ofstream archivo("usuarios.txt"); 
     
     if (archivo.is_open()) {
         archivo << persona.nombre << " "
                 << persona.apellido << " "
                 << persona.direccion << " "
                 << persona.identificacion << " "
-                << persona.telefono << " @\n";  
+                << persona.telefono << " "
+				<< persona.mascota.nombre << " "
+				<< persona.mascota.especie << " "
+				<< persona.mascota.edad << " "
+				<< persona.mascota.peso;  
         archivo.close(); 
-        cout << "Usuario guardado con éxito." << endl;
+        cout << "Usuario guardado con Ã©xito." << endl;
     } else {
         cout << "Error al abrir el archivo." << endl;
     }
+}
+
+void agregarUsuario() {
+	Persona persona; 
+    leerPersona(persona);
+    guardarUsuarioEnArchivo(persona);
 }
 
 Persona buscarUsuarioEnArchivo(string identificacionBuscada) {
@@ -82,7 +87,7 @@ void actualizarUsuarioEnArchivo(string identificacionBuscada) {
         rename("temp.txt", "usuarios.txt"); 
 
         if (encontrado) {
-            cout << "Usuario actualizado con éxito." << endl;
+            cout << "Usuario actualizado con Ã©xito." << endl;
         } else {
             cout << "Usuario con identificacion " << identificacionBuscada << " no encontrado." << endl;
         }
@@ -128,18 +133,18 @@ void eliminarUsuarioEnArchivo(string identificacionBuscada) {
     }
 }
 
-
-
 void mostrarTodosLosUsuarios() {
     ifstream archivo("usuarios.txt"); 
     Persona persona;
+    Mascota mascota;
 
     if (archivo.is_open()) {
         cout << "----- Lista de todos los usuarios -----" << endl;
-        while (archivo >> persona.nombre >> persona.apellido >> persona.direccion 
-                      >> persona.identificacion >> persona.telefono) {
-            archivo.ignore(1, '@'); 
+        while (archivo >> persona.nombre >> persona.apellido >> persona.direccion >> persona.identificacion >> persona.telefono >> mascota.nombre 
+		    >> mascota.especie >> mascota.edad >> mascota.peso) {
+		               	
             imprimirPersona(persona);
+            imprimirMascota(mascota);
             cout << "------------------------------------" << endl;
         }
         archivo.close();
@@ -162,7 +167,7 @@ void mostrarMenuUsuario() {
         cout << "5. Mostrar todos los usuarios" << endl;  
         cout << "6. Volver al menu principal" << endl;
         cout << endl;
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
 
         switch (opcion) {

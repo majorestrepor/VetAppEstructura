@@ -47,7 +47,6 @@ void imprimirPersona(Persona persona) {
     cout << "Direccion: " << persona.direccion << endl;
     cout << "Identificacion: " << persona.identificacion << endl;
     cout << "Telefono: " << persona.telefono << endl;
-    imprimirMascota(persona.mascota);
 }
 
 void leerPersona(Persona &persona) {

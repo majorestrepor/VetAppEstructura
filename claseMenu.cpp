@@ -144,7 +144,7 @@ void mostrarMenu() {
     int opcion = 0;
     do {
         cout << "---------- VETAPP ----------" << endl;
-        cout << "1. Agregar usuario" << endl;
+        cout << "1. Gestionar usuarios" << endl;
         cout << "2. Gestionar citas" << endl;
         cout << "3. Historial Clinico" << endl;
         cout << "4. Salir" << endl;
