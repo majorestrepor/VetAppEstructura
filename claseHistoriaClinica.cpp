@@ -15,24 +15,24 @@ struct HistoriaClinica {
     string descripcionProcedimiento;
 
     // Constructor
-    HistoriaClinica(string id, Persona cliente, Veterinario veterinario, fecha fecha, float costo, string descripcion) {
-    idHistoria = id;
-    this->cliente = cliente;
-    this->veterinario = veterinario;
-    this->fecha = fecha;
-    costoProcedimiento = costo;
-    descripcionProcedimiento = descripcion;
-}
+    //HistoriaClinica(string id, Persona cliente, Veterinario veterinario, fecha fecha, float costo, string descripcion) {
+    //idHistoria = id;
+    //this->cliente = cliente;
+    //this->veterinario = veterinario;
+    //this->fecha = fecha;
+    //costoProcedimiento = costo;
+    //descripcionProcedimiento = descripcion;
+//}
 
     // Método para obtener la descripción del procedimiento
-    string getDescripcionProcedimiento() {
-        return descripcionProcedimiento;
-    }
+   // string getDescripcionProcedimiento() {
+    //    return descripcionProcedimiento;
+   // }
 
     // Método para establecer la descripción del procedimiento
-    void setDescripcionProcedimiento(string descripcion) {
-        descripcionProcedimiento = descripcion;
-    }
+   // void setDescripcionProcedimiento(string descripcion) {
+    //    descripcionProcedimiento = descripcion;
+    //}
 };
 
 

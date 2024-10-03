@@ -1,3 +1,5 @@
+#ifndef CLASE_PERSONA_H 
+#define CLASE_PERSONA_H
 #include <iostream>
 #include <cctype>  
 #include <string>
@@ -62,3 +64,5 @@ void leerPersona(Persona &persona) {
     
     persona.mascota = crearMascota();
 }
+
+#endif

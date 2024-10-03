@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "claseCita.cpp"
-#include "claseFecha.cpp"
 #include "claseHistoriaClinica.cpp"
 #include "claseGestionarUsuario.cpp"
 

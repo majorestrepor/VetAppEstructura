@@ -1,4 +1,6 @@
 #include <iostream>
+#ifndef CLASE_MASCOTA_H 
+#define CLASE_MASCOTA_H 
 using namespace std;
 
 struct Mascota {
@@ -28,3 +30,5 @@ void imprimirMascota(Mascota mascota) {
     cout << "Edad de la mascota: " << mascota.edad << endl;
     cout << "Peso de la mascota: " << mascota.peso << endl;
 }
+
+#endif 
