@@ -3,20 +3,19 @@
 
 using namespace std;
 
-class Cita {
-private:
+struct Cita {
     string titulo;
     string fecha;
     string hora;
     string descripcion;
 
-public:
+  
     Cita() {}
 
-    Cita(string t, string f, string h, string d) 
-        : titulo(t), fecha(f), hora(h), descripcion(d) {}
 
-    
+    Cita(string t, string f, string h, string d)
+        : titulo(t), fecha(f), hora(h), descripcion(d) {}
+  
     void setTitulo(const string& t) { titulo = t; }
     string getTitulo() const { return titulo; }
 
@@ -29,7 +28,7 @@ public:
     void setDescripcion(const string& d) { descripcion = d; }
     string getDescripcion() const { return descripcion; }
 
-    
+   
     void imprimirCita() const {
         cout << "Titulo: " << titulo << endl;
         cout << "Fecha: " << fecha << endl;
@@ -37,3 +36,6 @@ public:
         cout << "Descripcion: " << descripcion << endl;
     }
 };
+
+
+
