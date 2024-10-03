@@ -6,7 +6,7 @@
 using namespace std;
 
 void guardarUsuarioEnArchivo(Persona persona) {
-    ofstream archivo("usuarios.txt"); 
+    ofstream archivo("usuarios.txt", std::ios::app); 
     
     if (archivo.is_open()) {
         archivo << persona.nombre << " "
@@ -20,6 +20,7 @@ void guardarUsuarioEnArchivo(Persona persona) {
 				<< persona.mascota.peso;  
         archivo.close(); 
         cout << "Usuario guardado con éxito." << endl;
+        cout << endl;
     } else {
         cout << "Error al abrir el archivo." << endl;
     }
@@ -146,6 +147,8 @@ void mostrarTodosLosUsuarios() {
             imprimirPersona(persona);
             imprimirMascota(mascota);
             cout << "------------------------------------" << endl;
+            cout << endl;
+            cout << endl;
         }
         archivo.close();
     } else {
