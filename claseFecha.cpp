@@ -1,3 +1,6 @@
+#ifndef CLASE_FECHA_H  
+#define CLASE_FECHA_H
+
 #include <iostream>
 
 using namespace std;
@@ -65,3 +68,4 @@ void mostrarFecha(fecha f) {
     cout << "  A o: " << f.year << endl;
 }
 
+#endif

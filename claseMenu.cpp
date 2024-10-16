@@ -5,6 +5,7 @@
 #include "claseHistoriaClinica.cpp"
 #include "claseGestionarUsuario.cpp"
 #include "claseGestionarVeterinario.cpp"
+#include "claseGestionarHistoriaClinica.cpp"
 
 using namespace std;
 
@@ -144,11 +145,13 @@ void gestionarCitas() {
 
 void mostrarMenu() {
     int opcion = 0;
+    ListaHistorias* listaHistorias = new ListaHistorias();
+    
     do {
         cout << "---------- VETAPP ----------" << endl;
         cout << "1. Gestionar usuarios" << endl;
         cout << "2. Gestionar citas" << endl;
-        cout << "3. Historial Clinico" << endl;
+        cout << "3. Gestionar historial Clinico" << endl;
         cout << "4. Gestionar veterinarios" << endl;
         cout << "5. Salir" << endl;
         cout << endl;
@@ -165,7 +168,7 @@ void mostrarMenu() {
                 break;
             case 3:
                 cout << "Opcion 3: Historial Clinico" << endl;
-                mostrarHistorialClinico();
+                mostrarMenuHistoriaClinica(listaHistorias);
                 break;
             case 4: 
             	cout << "Opcion 4: Veterinario..." << endl; 
