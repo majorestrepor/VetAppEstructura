@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
 #include "claseCita.cpp"
+#include "claseVeterinario.cpp"
 #include "claseHistoriaClinica.cpp"
 #include "claseGestionarUsuario.cpp"
+#include "claseGestionarVeterinario.cpp"
 
 using namespace std;
 
@@ -147,7 +149,8 @@ void mostrarMenu() {
         cout << "1. Gestionar usuarios" << endl;
         cout << "2. Gestionar citas" << endl;
         cout << "3. Historial Clinico" << endl;
-        cout << "4. Salir" << endl;
+        cout << "4. Gestionar veterinarios" << endl;
+        cout << "5. Salir" << endl;
         cout << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -155,20 +158,24 @@ void mostrarMenu() {
         switch (opcion) {
             case 1:
                 cout << "Opcion 1: Gestionar usuarios" << endl;
-               	mostrarMenuUsuario();
+                mostrarMenuUsuario();
                 break;
             case 2:
                 gestionarCitas();  
                 break;
             case 3:
-                cout << "opcion 7: Historial Clinico  " << endl;
+                cout << "Opcion 3: Historial Clinico" << endl;
                 mostrarHistorialClinico();
                 break;
-            case 4:
-                cout << "Saliendo del programa..." << endl;            
+            case 4: 
+            	cout << "Opcion 4: Veterinario..." << endl; 
+                mostrarMenuVeterinario();
+				break;
+            case 5:
+                cout << "Saliendo del programa..." << endl;
                 break;
             default:
                 cout << "Opcion no valida. Por favor, intente de nuevo." << endl;
         }
-    } while (opcion != 4);
+    } while (opcion != 5);
 }

@@ -64,4 +64,17 @@ void leerPersona(Persona &persona) {
     persona.mascota = crearMascota();
 }
 
+void leerPersonaSinMascota(Persona &persona) {
+    cout << "ingresar nombre: " << endl;
+    cin >> persona.nombre;
+    cout << "ingresar apellido: " << endl;
+    cin >> persona.apellido;
+    cout << "ingresar direccion: " << endl;
+    cin >> persona.direccion;
+        
+    persona.identificacion = leerValorNumerico("identificacion", 7, 10);
+	
+    persona.telefono = leerValorNumerico("telefono", 8, 10);
+}
+
 #endif
