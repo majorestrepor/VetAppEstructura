@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream> 
 #include "claseCita.cpp"
 #include "claseVeterinario.cpp"
 #include "claseHistoriaClinica.cpp"
@@ -11,10 +12,52 @@ using namespace std;
 
 vector<Cita> citas;
 
-void mostrarHistorialClinico() {
-    cout << "Historial Clinico:" << endl;
+void guardarCitasEnArchivo() {
+    ofstream archivo("citas.txt", ios::trunc); 
     
+    if (archivo.is_open()) {
+        for (const auto& cita : citas) {
+            archivo << cita.getTitulo() << ","
+                    << cita.getFecha() << ","
+                    << cita.getHora() << ","
+                    << cita.getDescripcion() << endl;
+        }
+        archivo.close();
+    } else {
+        cout << "No se pudo abrir el archivo de citas." << endl;
+    }
 }
+
+void cargarCitasDesdeArchivo() {
+    ifstream archivo("citas.txt");
+    string linea, titulo, fecha, hora, descripcion;
+
+    if (archivo.is_open()) {
+        while (getline(archivo, linea)) {
+            size_t pos = 0;
+            pos = linea.find(',');
+            titulo = linea.substr(0, pos);
+            linea.erase(0, pos + 1);
+
+            pos = linea.find(',');
+            fecha = linea.substr(0, pos);
+            linea.erase(0, pos + 1);
+
+            pos = linea.find(',');
+            hora = linea.substr(0, pos);
+            linea.erase(0, pos + 1);
+
+            descripcion = linea;
+
+            Cita cita(titulo, fecha, hora, descripcion);
+            citas.push_back(cita);
+        }
+        archivo.close();
+    } else {
+        cout << "No se pudo abrir el archivo de citas." << endl;
+    }
+}
+
 void agendarCita() {
     string titulo, fecha, hora, descripcion;
     cout << "Ingrese el titulo de la cita: ";
@@ -29,6 +72,9 @@ void agendarCita() {
 
     Cita nuevaCita(titulo, fecha, hora, descripcion);
     citas.push_back(nuevaCita);
+
+    
+    guardarCitasEnArchivo();
 
     cout << "Cita agendada exitosamente!" << endl;
 }
@@ -45,6 +91,8 @@ void eliminarCita() {
             citas.erase(it);
             cout << "Cita eliminada exitosamente!" << endl;
             encontrada = true;
+            
+            guardarCitasEnArchivo();
             break;
         }
     }
@@ -77,6 +125,9 @@ void reprogramarCita() {
 
             cout << "Cita reprogramada exitosamente!" << endl;
             encontrada = true;
+
+            
+            guardarCitasEnArchivo();
             break;
         }
     }
@@ -110,13 +161,15 @@ void consultarCita() {
 }
 
 void gestionarCitas() {
+    cargarCitasDesdeArchivo();
+
     int opcionCita = 0;
     do {
         cout << "------ Gestion de Citas ------" << endl;
         cout << "1. Agendar cita" << endl;
         cout << "2. Eliminar cita" << endl;
         cout << "3. Reprogramar cita" << endl;
-        cout << "4. Consultar cita" << endl;  // Nueva opción
+        cout << "4. Consultar cita" << endl;
         cout << "5. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcionCita;
@@ -182,3 +235,4 @@ void mostrarMenu() {
         }
     } while (opcion != 5);
 }
+

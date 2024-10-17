@@ -42,7 +42,8 @@ void crearHistoriaClinica(ListaHistorias* lista, HistoriaClinica nuevaHistoria, 
     cout << "Ingrese el identificador del veterinario:" << endl;
     cin >> nuevaHistoria.idUnicoveterinario;
 
-    cout << "Ingrese la fecha de la cita (DD/MM/AAAA): ";
+    cout << "Ingrese la fecha de la cita (DD/MM/AAAA): " << endl;
+    cin.ignore();
     getline(cin, nuevaHistoria.fecha);
 
     cout << "Ingrese el costo del procedimiento: ";
